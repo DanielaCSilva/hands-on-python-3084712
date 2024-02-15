@@ -19,11 +19,14 @@ def index():
 def laureate_list():
     # template found in templates/laureate.html
     results = []
-    if not request.args.get("surname"):
+    if not request.args.get("name"):
         return jsonify(results)
+    
+    search_string = request.args.get("name").lower().strip()
+    for laureate in laureates:
+        if search_string in laureate["name"].lower():
+            results.append(laureate)
 
-    # Your code here!
-    return "your code here!"
-
+    return jsonify(results)
 
 app.run(debug=True)
