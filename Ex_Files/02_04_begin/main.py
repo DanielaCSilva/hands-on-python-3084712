@@ -19,3 +19,7 @@ for i in range(5):
     print(i)
 
 # enumerate
+for i, name in enumerate(NAMES):
+    print(f"{i} {name}")
+for i, name in enumerate(reversed(NAMES)):
+    print(f"{i} {name}")
